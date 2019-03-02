@@ -1,0 +1,3 @@
+/home/misiyu/code/ndn-ip/proxy/build/CMakeFiles/edit_cache.dir
+/home/misiyu/code/ndn-ip/proxy/build/CMakeFiles/rebuild_cache.dir
+/home/misiyu/code/ndn-ip/proxy/build/CMakeFiles/ndn_ip.dir
