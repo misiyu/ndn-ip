@@ -13,14 +13,15 @@ IP2NDN_proxy::IP2NDN_proxy(){
 	server_sockfd = socket(AF_INET, SOCK_STREAM , 0);
 	bzero((char*)&serv_addr , sizeof(serv_addr));
 	serv_addr.sin_family = AF_INET ;
-	//serv_addr.sin_addr.s_addr = inet_addr("192.168.7.21");
-	serv_addr.sin_addr.s_addr = inet_addr(BIND_IP);
+	//serv_addr.sin_addr.s_addr = inet_addr(BIND_IP);
+	serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 	serv_addr.sin_port = htons(port);
 
-	for (int i = 0; i < 10; i++) {
-		
-		int ret = bind(server_sockfd, (struct sockaddr *)&serv_addr , sizeof(serv_addr));
-	}
+	//for (int i = 0; i < 10; i++) {
+		//int ret = bind(server_sockfd, (struct sockaddr *)&serv_addr , sizeof(serv_addr));
+	//}
+	while(bind(server_sockfd, (struct sockaddr *)&serv_addr , sizeof(serv_addr)) == -1) ;
+	cout << "bind port " << port << " success" << endl ;
 
 	listen(server_sockfd , 10) ;
 

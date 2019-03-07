@@ -148,7 +148,7 @@ int main(int argc , char ** argv)
 	string interest_name = "/localhost/nfd/testApp/003.mp4";
 	if(argc < 2) {
 		cout << "Usage : ./client [ndn source name]" << endl ;
-		cout << "example : ./ndn_cli /test/aaa/testApp/003.mkv" << endl ;
+		cout << "example : ./ndn_client /test/aaa/testApp/003.mkv" << endl ;
 		exit(1);
 	}else{
 		interest_name = argv[1];

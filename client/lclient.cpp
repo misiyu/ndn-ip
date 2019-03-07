@@ -15,6 +15,10 @@
 #define BUFF_SIZE 8002
 
 using namespace std;
+
+int if_open_player = 0 ;
+string proxy_ip  ;
+
 ssize_t readn(int fd, char *buf, int n){
     size_t nleft = n; //还需要读取的字节数
     char *bufptr = buf; //指向read函数当前存放数据的位置
@@ -44,6 +48,7 @@ void * open_player(void * val){
 	system(cmd.data());
 	return NULL ;
 }
+
 
 int main(int argc , char ** argv)
 {

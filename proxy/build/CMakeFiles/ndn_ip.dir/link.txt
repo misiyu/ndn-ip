@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/ndn_ip.dir/main.cpp.o CMakeFiles/ndn_ip.dir/ip2ndn_proxy.cpp.o CMakeFiles/ndn_ip.dir/connection.cpp.o  -o ndn_ip -lpcap -lndn-cxx -lboost_system -lboost_thread -ljsoncpp -lpthread 
