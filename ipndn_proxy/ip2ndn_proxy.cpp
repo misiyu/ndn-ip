@@ -17,9 +17,6 @@ IP2NDN_proxy::IP2NDN_proxy(){
 	serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 	serv_addr.sin_port = htons(port);
 
-	//for (int i = 0; i < 10; i++) {
-		//int ret = bind(server_sockfd, (struct sockaddr *)&serv_addr , sizeof(serv_addr));
-	//}
 	while(bind(server_sockfd, (struct sockaddr *)&serv_addr , sizeof(serv_addr)) == -1) ;
 	cout << "bind port " << port << " success" << endl ;
 

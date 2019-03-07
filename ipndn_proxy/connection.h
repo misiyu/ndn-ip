@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <ndn-cxx/face.hpp>
 #include <errno.h>
+#include <exception>
 
 #include <iostream>
 

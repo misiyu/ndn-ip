@@ -68,11 +68,15 @@ void Connection::onData1(const Interest& interest , const Data& data){
 	//send(this->sockfd , send_buff, BUFF_SIZE,0);
 	send_num = writen(this->sockfd , send_buff , BUFF_SIZE);
 	char buff_ack[1];
-	read(this->sockfd , buff_ack,1 );
+	int recv_len = read(this->sockfd , buff_ack,1 );
+	cout << "recv_len = " << recv_len << endl ;
+	if(recv_len <= 0) pthread_exit(NULL);
 
 	this->get_segment_count ++ ;
+	//if(this->get_segment_count == 100) pthread_exit(NULL);
 	//cout << this->get_segment_count << ":"<<this->segment_num << endl ;
 	cout << this->get_segment_count << ":"<<this->segment_num << ":"<<send_num <<":" << tmp <<  endl;
+	//sleep(1);
 
 	if(this->get_segment_count < this->segment_num){
 		//cout << "more data " << endl ;
