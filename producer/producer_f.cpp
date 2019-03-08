@@ -159,11 +159,9 @@ class Producer : noncopyable
 			ss.clear();
 			ss << interst_name.substr(tmp2+1,interst_name.length()-tmp2-1);
 			ss >> segment_no ;
-			cout << file_index << " segment_no = " << segment_no << endl ;
+			cout << file_index << " : " << segment_no << endl ;
 
-			//string content = this->m_filetable.get_data(file_index,segment_no);
 			char content[BUFF_SIZE] ;
-			//memcpy(content,this->m_filetable.get_data(file_index,segment_no),BUFF_SIZE);
 			fseek(this->file_table[file_index].file,(BUFF_SIZE-2)*segment_no,SEEK_SET);
 			int16_t read_size = fread(content,sizeof(char),BUFF_SIZE-2,this->file_table[file_index].file);
 			memcpy(content+BUFF_SIZE-2,&read_size,sizeof(int16_t));
@@ -171,9 +169,9 @@ class Producer : noncopyable
 			data.setName(interst_name);
 			data.setContent(reinterpret_cast<const uint8_t*>(content),BUFF_SIZE);
 
-			int16_t tmp ;
-			memcpy(&tmp , content+BUFF_SIZE-2,sizeof(int16_t));
-			cout << "valid_num = "<<tmp << endl ;
+			//int16_t tmp ;
+			//memcpy(&tmp , content+BUFF_SIZE-2,sizeof(int16_t));
+			//cout << "valid_num = "<<tmp << endl ;
 			m_keyChain.sign(data);
 			m_face.put(data);
 			cout << "send data's name : " << data.getName() <<endl ;

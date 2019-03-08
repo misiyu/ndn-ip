@@ -69,7 +69,6 @@ void Connection::onData1(const Interest& interest , const Data& data){
 	send_num = writen(this->sockfd , send_buff , BUFF_SIZE);
 	char buff_ack[1];
 	int recv_len = read(this->sockfd , buff_ack,1 );
-	cout << "recv_len = " << recv_len << endl ;
 	if(recv_len <= 0) pthread_exit(NULL);
 
 	this->get_segment_count ++ ;
